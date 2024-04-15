@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Ecuaciones Lineales</title>
+</head>
+<body>
+    <h1>Ingrese los coeficientes y constantes del sistema de ecuaciones lineales:</h1>
+    <form action="/solve" method="post">
+        <label>Numero de ecuaciones:</label>
+        <input type="number" name="numEcuaciones"><br><br>
+
+        <label>Numero de variables por ecuacion:</label>
+        <input type="number" name="numVariables"><br><br>
+
+        {% for i in range(numEcuaciones) %}
+        <p>Ecuacion {{ i+1 }}:</p>
+        {% for j in range(numVariables) %}
+        <label>Coeficiente {{ j+1 }}:</label>
+        <input type="number" name="coef_{{ i }}_{{ j }}"><br>
+        {% endfor %}
+        <label>Termino independiente:</label>
+        <input type="number" name="const_{{ i }}"><br><br>
+        {% endfor %}
+
+        <button type="submit">Resolver</button>
+    </form>
+</body>
+</html>
